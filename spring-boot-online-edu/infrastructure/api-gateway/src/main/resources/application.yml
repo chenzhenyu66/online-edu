@@ -1,0 +1,35 @@
+server:
+  port: 9001
+spring:
+  application:
+    name: service-gateway
+  cloud:
+    nacos:
+      discovery:
+        server-addr: 127.0.0.1:8848
+    gateway:
+      discovery:
+        locator:
+          enabled: true
+      routes:
+        - id: service-acl
+          uri: lb://service-acl
+          predicates:
+            - Path=/*/acl/** # 路径匹配
+        - id: service-edu
+          uri: lb://service-edu
+          predicates:
+            - Path=/eduservice/**
+        - id: service-oss
+          uri: lb://service-oss
+          predicates:
+            - Path=/eduoss/**
+        - id: service-usrv
+          uri: lb://service-usrv
+          predicates:
+            - Path=/eduusrv/**
+        - id: service-vod
+          uri: lb://service-vod
+          predicates:
+            - Path=/eduvod/**
+

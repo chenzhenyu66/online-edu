@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.czy1344.aclservice.mapper.PermissionMapper">
+
+    <select id="selectAdminPermission" resultType="java.lang.String">
+        select
+        permission_value
+        from acl_permission
+        where type = 2
+        and is_deleted = 0
+    </select>
+
+    <select id="selectRoleMenu" resultType="java.lang.String">
+        select
+        p.permission_value
+        from acl_user_role ur
+        inner join acl_role_permission rp on rp.role_id = ur.role_id
+        inner join acl_permission p on p.id = rp.permission_id
+        where ur.user_id = #{userId}
+        and p.type = 2
+        and ur.is_deleted = 0
+        and rp.is_deleted = 0
+        and p.is_deleted = 0
+    </select>
+
+    <select id="selectPermissionByUserId" resultType="com.czy1344.aclservice.entity.Permission">
+        select
+        p.id,p.pid,p.name,p.type,p.permission_value,path,
+        p.component,p.icon,p.status,p.is_deleted,p.gmt_create,p.gmt_modified
+        from acl_user_role ur
+        inner join acl_role_permission rp on rp.role_id = ur.role_id
+        inner join acl_permission p on p.id = rp.permission_id
+        where ur.user_id = #{userId}
+        and ur.is_deleted = 0
+        and rp.is_deleted = 0
+        and p.is_deleted = 0
+    </select>
+</mapper>

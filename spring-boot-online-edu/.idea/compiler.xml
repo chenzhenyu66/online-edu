@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="CompilerConfiguration">
+    <annotationProcessing>
+      <profile name="Maven default annotation processors profile" enabled="true">
+        <sourceOutputDir name="target/generated-sources/annotations" />
+        <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
+        <outputRelativeToContentRoot value="true" />
+        <module name="service-oss" />
+        <module name="service-usrv" />
+        <module name="service-vod" />
+        <module name="service-edu" />
+        <module name="api-gateway" />
+        <module name="service-acl" />
+        <module name="spring-security" />
+        <module name="service-base" />
+        <module name="common-utils" />
+      </profile>
+    </annotationProcessing>
+    <bytecodeTargetLevel target="8">
+      <module name="api-gateway" target="1.8" />
+      <module name="common" target="1.8" />
+      <module name="common-utils" target="1.8" />
+      <module name="infrastructure" target="1.8" />
+      <module name="service" target="1.8" />
+      <module name="service-acl" target="1.8" />
+      <module name="service-base" target="1.8" />
+      <module name="service-edu" target="1.8" />
+      <module name="service-oss" target="1.8" />
+      <module name="service-usrv" target="1.8" />
+      <module name="service-vod" target="1.8" />
+      <module name="spring-boot-online-edu" target="1.8" />
+      <module name="spring-security" target="1.8" />
+    </bytecodeTargetLevel>
+  </component>
+  <component name="JavacSettings">
+    <option name="ADDITIONAL_OPTIONS_OVERRIDE">
+      <module name="api-gateway" options="-parameters" />
+      <module name="common-utils" options="-parameters" />
+      <module name="service-acl" options="-parameters" />
+      <module name="service-base" options="-parameters" />
+      <module name="service-edu" options="-parameters" />
+      <module name="service-oss" options="-parameters" />
+      <module name="service-usrv" options="-parameters" />
+      <module name="service-vod" options="-parameters" />
+      <module name="spring-security" options="-parameters" />
+    </option>
+  </component>
+</project>
